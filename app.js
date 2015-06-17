@@ -10,7 +10,7 @@ var passport = require('passport');
 require('./models/Posts');
 require('./models/Comments');
 require('./models/Users');
-require('./models/passport');
+require('./config/passport');
 mongoose.connect('mongodb://localhost/news');
 
 
@@ -65,7 +65,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.user(passport.initialize());
+app.use(passport.initialize());
 
 
 module.exports = app;
